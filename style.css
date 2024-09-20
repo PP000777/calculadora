@@ -1,84 +1,76 @@
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
     margin: 0;
-    background: #333;
+    padding: 0;
 }
 
-.main-container {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 90vh;
+    background-color: rgb(240, 231, 205);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.calculator {
-    border: 1px solid #555;
-    background-color: #444; /* Cor de fundo da calculadora */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 260px;
-}
-
-.calculator input {
-    margin-bottom: 10px;
-    padding: 15px;
-    width: calc(100% - 30px);
-    box-sizing: border-box;
-    font-size: 24px;
-    text-align: right;
-    border: 1px solid #666;
-    border-radius: 8px;
-    background-color: #444; /* Mesmo fundo que a calculadora */
-    color: #eee;
-}
-
-.button-container {
+.container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
 }
 
-.calculator button {
+.calculadora {
+    background-color: white;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.botoes {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.btn {
     padding: 15px;
     font-size: 18px;
-    border: 1px solid #666;
-    background-color: #555; /* Cor uniforme para todos os botões */
-    color: #eee;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.2s, transform 0.1s;
-    flex: 1;
-    margin: 2px;
-    box-shadow: inset 0 0 3px #000;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.calculator button:hover {
-    background-color: #666;
+.btn:hover {
+    font-weight: bold;
 }
 
-.calculator button:active {
-    background-color: #444;
-    transform: scale(0.95);
+.btn:nth-child(1) { 
+    background-color: #ffcc00; 
 }
 
-.button-container .zero {
-    flex: 2;
+.btn:nth-child(2) { 
+    background-color: #ff6666;
 }
 
-.button-container .equals {
-    background-color: #666; /* Mesmo tom para o botão de "=" */
-    color: #eee;
-    flex: 2;
+
+#display {
+    width: 100%;
+    height: 40px;
+    font-size: 24px;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-footer {
-    font-size: 14px;
-    color: #aaa;
-    text-align: center;
-    margin-top: 20px;
+.duplo {
+    grid-column: span 2;
+}
+
+.nome {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #333;
 }
