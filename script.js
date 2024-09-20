@@ -1,60 +1,73 @@
-let display = document.getElementById('display');
-let currentNumber = '';
-let previousNumber = '';
-let operation = '';
+var numero = '';
+var operadorAtual = '';
+var numeroAnterior = '';
 
-function appendNumber(number) {
-    currentNumber += number;
-    display.value = currentNumber;
+function addNumero(caractere) {
+    numero += caractere;
+    document.getElementById('display').value = numero;
 }
 
-function setOperation(op) {
-    if (currentNumber === '') return;
-    if (previousNumber !== '') {
-        calculateResult();
+function limparDisplay() {
+    numero = '';
+    operadorAtual = '';
+    numeroAnterior = '';
+    document.getElementById('display').value = '';
+}
+
+function apagar() {
+    let display = document.getElementById('display').value;
+    document.getElementById('display').value = display.slice(0, -1);
+    numero = numero.slice(0, -1);
+}
+
+function operador(op) {
+    if (numero !== '') {
+        operadorAtual = op;
+        numeroAnterior = numero;
+        numero = '';
+        document.getElementById('display').value = '';
     }
-    operation = op;
-    previousNumber = currentNumber;
-    currentNumber = '';
 }
 
-function clearDisplay() {
-    display.value = '';
-    currentNumber = '';
-    previousNumber = '';
-    operation = '';
-}
+function calcular() {
+    let resultado = 0;
+    let atual = parseFloat(numero);
+    let anterior = parseFloat(numeroAnterior);
 
-function deleteLast() {
-    currentNumber = currentNumber.slice(0, -1);
-    display.value = currentNumber;
-}
-
-function calculateResult() {
-    if (previousNumber === '' || currentNumber === '') return;
-    let result;
-    let prev = parseFloat(previousNumber);
-    let curr = parseFloat(currentNumber);
-
-    switch (operation) {
-        case '+':
-            result = prev + curr;
-            break;
-        case '-':
-            result = prev - curr;
-            break;
-        case '*':
-            result = prev * curr;
-            break;
-        case '/':
-            result = prev / curr;
-            break;
-        default:
+    if (operadorAtual === '+') {
+        resultado = anterior + atual;
+    } else if (operadorAtual === '-') {
+        resultado = anterior - atual;
+    } else if (operadorAtual === '*') {
+        resultado = anterior * atual;
+    } else if (operadorAtual === '/') {
+        if (atual === 0) {
+            document.getElementById('display').value = 'Erro';
             return;
+        }
+        resultado = anterior / atual;
     }
 
-    display.value = result;
-    currentNumber = result;
-    previousNumber = '';
-    operation = '';
+    document.getElementById('display').value = resultado;
+    numero = resultado.toString();
+    operadorAtual = '';
+    numeroAnterior = '';
+}
+
+function raizQuadrada() {
+    let valor = parseFloat(numero);
+    if (valor >= 0) {
+        let resultado = Math.sqrt(valor);
+        document.getElementById('display').value = resultado;
+        numero = resultado.toString();
+    } else {
+        document.getElementById('display').value = 'Erro';
+    }
+}
+
+function porcentagem() {
+    let valor = parseFloat(numero);
+    let resultado = valor / 100;
+    document.getElementById('display').value = resultado;
+    numero = resultado.toString();
 }
