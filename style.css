@@ -8,25 +8,21 @@ body {
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background-color: rgb(240, 231, 205);
+    background-color: aquamarine;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
-    display: flex;
-    align-items: center;
 }
 
 .calculadora {
     background-color: white;
     width: 300px;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    justify-content: center;
 }
 
 .botoes {
@@ -36,33 +32,25 @@ body {
 }
 
 .btn {
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    padding: 20px;
+    font-size: 20px;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 .btn:hover {
     font-weight: bold;
+    transform: scale(1.05);
 }
 
-.btn:nth-child(1) { 
-    background-color: #ffcc00; 
+h1 {
+    text-align: center;
 }
-
-.btn:nth-child(2) { 
-    background-color: #ff6666;
-}
-
 
 #display {
-    width: 100%;
-    height: 40px;
-    font-size: 24px;
+    width: 290px;
+    height: 50px;
     text-align: right;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-size: 24px;
 }
 
 .duplo {
@@ -70,7 +58,6 @@ body {
 }
 
 .nome {
-    margin-left: 20px;
-    font-size: 20px;
-    color: #333;
+    margin-top: 10px;
+    font-size: 16px;
 }
